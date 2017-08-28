@@ -7,7 +7,7 @@ pipelineJob('DSL Pipeline example') {
         cpsScm {
             scm {
                 git('https://github.com/jzohrab/docker-demo.git') {
-		    branch('wip_try_dsl_and_jenkinsfile')
+		    branch('master')
 		}
             }
         }
