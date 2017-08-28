@@ -1,4 +1,4 @@
-pipelineJob('DSL Pipeline example') {
+pipelineJob('DSL Pipeline example 1') {
     triggers {
         scm('H/5 * * * *')
     }
