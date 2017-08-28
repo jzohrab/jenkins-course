@@ -7,8 +7,9 @@ pipelineJob('DSL Pipeline example') {
         cpsScm {
             scm {
                 git('https://github.com/jzohrab/docker-demo.git') {
-                   configure { it / extensions << '' }
-		    branch('master')
+                   // configure { it / extensions << '' }
+		   extensions { }  // nothing???
+                   branch('master')
 		}
             }
         }
