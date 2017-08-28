@@ -8,7 +8,8 @@ pipelineJob('DSL Pipeline example') {
             scm {
                 git('https://github.com/jzohrab/docker-demo.git') {
                    // configure { it / extensions << '' }
-		   extensions { }  // nothing???
+		   // extensions { }  // nothing???
+		   TESTESTESTEST
                    branch('master')
 		}
             }
