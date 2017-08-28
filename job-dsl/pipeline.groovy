@@ -5,7 +5,6 @@ pipelineJob('DSL_Pipeline_example_4') {
     description('Pipeline for git://github.com/jzohrab/docker-demo.git')
     definition {
         cpsScm {
-	    sandbox()
             scm {
                 git('https://github.com/jzohrab/docker-demo.git') {
                    // configure { it / extensions << '' }
