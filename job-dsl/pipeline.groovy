@@ -1,4 +1,4 @@
-pipelineJob('DSL_Pipeline_example_3') {
+pipelineJob('DSL_Pipeline_example_4') {
     triggers {
         scm('H/5 * * * *')
     }
@@ -8,10 +8,9 @@ pipelineJob('DSL_Pipeline_example_3') {
 	    sandbox()
             scm {
                 git('https://github.com/jzohrab/docker-demo.git') {
-                   configure { it / extensions << '' }
-		   // extensions { }  // nothing???
-		   // TESTESTESTEST
-                   branch('master')
+                   // configure { it / extensions << '' }
+		   extensions { }  // nothing???
+                   branches('master')
 		}
             }
         }
