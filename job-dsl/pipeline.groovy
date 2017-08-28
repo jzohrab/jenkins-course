@@ -6,7 +6,8 @@ pipelineJob('DSL Pipeline example') {
     definition {
         cpsScm {
             scm {
-                git('https://github.com/jzohrab/docker-demo.git', {node -> node.remove(node / extensions) }) {
+                git('https://github.com/jzohrab/docker-demo.git') {
+		    configure { node -> node.remove(node / extensions) }
 		    branch('master')
 		}
             }
