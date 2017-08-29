@@ -1,4 +1,4 @@
-pipelineJob('DSL_Pipeline_example_6') {
+pipelineJob('DSL_Pipeline_example_8') {
     triggers {
         scm('H/5 * * * *')
     }
@@ -6,12 +6,14 @@ pipelineJob('DSL_Pipeline_example_6') {
     definition {
         cpsScm {
             scm {
-                git('https://github.com/jzohrab/docker-demo.git') {
+                git('https://github.com/jzohrab/docker-demo.git', 'master', { node -> node / 'extensions' << '' } )
+
+                // {
                    // configure { it / extensions << '' }
-		   // extensions { }  // nothing???
-		   configure { node -> node / extensions << '' } 
-                   branches('master')
-		}
+                   // extensions { }  // nothing???
+		   // configure { node -> node / extensions << '' } 
+                   // branches('some_branch', 'master')
+                // }
             }
         }
     }
