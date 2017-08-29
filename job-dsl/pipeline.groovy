@@ -1,8 +1,11 @@
 pipelineJob('DSL_Pipeline_ex_10') {
+    def repo = 'https://github.com/jzohrab/docker-demo.git'
+
     triggers {
         scm('H/5 * * * *')
     }
-    description('Pipeline for git://github.com/jzohrab/docker-demo.git')
+    description("Pipeline for $repo - source code is in repo BLAH")
+
     definition {
         cpsScm {
             scm {
