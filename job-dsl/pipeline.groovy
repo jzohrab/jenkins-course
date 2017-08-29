@@ -1,34 +1,25 @@
-pipelineJob('DSL_Pipeline_ex_10') {
-    def repo = 'https://github.com/jzohrab/docker-demo.git'
+pipelineJob('DSL_Pipeline') {
 
-    triggers {
-        scm('H/5 * * * *')
-    }
-    description("Pipeline for $repo - source code is in repo BLAH")
+  def repo = 'https://github.com/jzohrab/docker-demo.git'
 
-    definition {
-        cpsScm {
-            scm {
+  triggers {
+    scm('H/5 * * * *')
+  }
+  description("Pipeline for $repo")
 
-              git {
-                remote { url(repo) }
-                branches('branch-that-may-not-exist', 'master')
-                scriptPath('misc/Jenkinsfile.v2')
-                extensions { }
-              }
-
-                // git('https://github.com/jzohrab/docker-demo.git', 'master', { node -> node / 'extensions' << '' } )
-		
-	        // the below line works
-                // git('https://github.com/jzohrab/docker-demo.git', 'master', { node -> node / 'extensions' << '' } )
-
-                // {
-                   // configure { it / extensions << '' }
-                   // extensions { }  // nothing???
-		   // configure { node -> node / extensions << '' } 
-                   // branches('some_branch', 'master')
-                // }
-            }
+  definition {
+    cpsScm {
+      scm {
+        git {
+          remote { url(repo) }
+          branches('master', '**/feature*')
+          scriptPath('misc/Jenkinsfile.v2')
+          extensions { }
         }
+
+        // the below line also works, but it only covers the 'master' branch
+        // git(repo, 'master', { node -> node / 'extensions' << '' } )
+      }
     }
+  }
 }
