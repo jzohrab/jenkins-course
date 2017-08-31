@@ -22,7 +22,7 @@ RUN mkdir -p /tmp/download && \
  rm -rf /tmp/download/docker/dockerd && \
  mv /tmp/download/docker/docker* /usr/local/bin/ && \
  rm -rf /tmp/download && \
- groupadd -g 999 docker && \
+ groupadd -g 998 docker && \
  usermod -aG docker jenkins
 
 # expose ssh port
@@ -30,5 +30,7 @@ EXPOSE 22
 
 # make sure host keys are regenerated before sshd starts
 COPY entrypoint.sh /entrypoint.sh
+
+USER jenkins
 
 ENTRYPOINT ["/entrypoint.sh"]
